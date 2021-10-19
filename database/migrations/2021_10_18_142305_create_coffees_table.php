@@ -19,6 +19,7 @@ class CreateCoffeesTable extends Migration
             $table->integer('price');
             $table->timestamps();
         });
+
     }
 
     /**

@@ -30,7 +30,7 @@ class AddonSeeder extends Seeder
         ];
 
         foreach ($addons as $addon) {
-            $product = Addon::whereMobile($addon['name'])->first();
+            $product = Addon::whereName($addon['name'])->first();
             if (!$product) {
                 Addon::create($addon);
             }

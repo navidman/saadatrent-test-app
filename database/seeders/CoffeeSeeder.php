@@ -31,7 +31,7 @@ class CoffeeSeeder extends Seeder
         ];
 
         foreach ($coffees as $coffee) {
-            $product = Coffee::whereMobile($coffee['name'])->first();
+            $product = Coffee::whereName($coffee['name'])->first();
             if (!$product) {
                 Coffee::create($coffee);
             }
