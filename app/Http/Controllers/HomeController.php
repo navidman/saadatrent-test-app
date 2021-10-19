@@ -12,6 +12,7 @@ class HomeController extends Controller
     {
         $this->coffee_repository = $coffee_repository;
     }
+
     public function get()
     {
         $coffees = $this->coffee_repository->getCoffees();
