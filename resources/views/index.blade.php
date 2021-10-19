@@ -39,7 +39,7 @@
         @foreach($coffees as $coffee)
             <div class="col-md-3">
                 <p>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" onclick="changeQuantity({{ $coffee->price }})">
                         {{ $coffee->name }}
                         <br>
                         {{ $coffee->price }}
@@ -50,7 +50,7 @@
                     <div class="collapse collapse-horizontal" id="collapseWidthExample">
                         <div class="card card-body" style="width: 300px;">
                             @foreach($coffee->addons as $addon)
-                                <a class="btn btn-info" type="button" >
+                                <a class="btn btn-info" type="button" onclick="changeQuantity({{ $addon->price }})">
                                     {{ $addon->name }}
                                     <br>
                                     {{ $addon->price }}
@@ -64,11 +64,19 @@
         @endforeach
         <div class="col-md-3">
             <label for="soorathesab">soorat hesab</label>
-            <input type="text" id="soorathesab" name="soorathesab" placeholder="soorat hesab...">
+            <input type="text" id="soorathesab" name="soorathesab" placeholder="soorat hesab..." value="0">
         </div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function changeQuantity(price) {
+        $oldPrice = parseInt($('input').val());
+        $('input').val($oldPrice + parseInt(price));
+    }
+
+</script>
 </body>
 </html>
